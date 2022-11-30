@@ -7,7 +7,16 @@ export const ContactForm = ({ onAddContact }) => {
   const [number, setNumber] = useState('');
 
   const onChange = e => {
-    setName(e.target.value);
+    switch (e.target.name) {
+      case 'name':
+        setName(e.target.value);
+        break;
+      case 'number':
+        setNumber(e.target.value);
+        break;
+      default:
+        return;
+    }
   };
   const onSubmit = e => {
     e.preventDefault();
